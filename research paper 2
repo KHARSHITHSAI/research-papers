@@ -1,0 +1,228 @@
+Enhancing the Recall of Detecting the Emotion from the Text using Naïve Bayes Algorithm in Comparison with Recurrent Neural Network Algorithm
+                                       	K. Harshith Sai1, D. Beulah David2
+ 
+K. Harshith Sai1
+Research Scholar,
+Department of Computer Science and Engineering,
+Saveetha School of Engineering,
+Saveetha Institute of Medical and Technical Sciences,
+Saveetha University, Chennai, TamilNadu, India, Pincode: 602105.
+harshithsaik1303.sse@saveetha.com
+ 
+D. Beulah David2
+Project Guide, Corresponding Author,
+Department of Quantum Intelligence,
+Saveetha School of Engineering,
+Saveetha Institute of Medical and Technical Sciences,
+Saveetha University, Chennai, TamilNadu, India, Pincode: 602105.
+beulahdavid.sse@saveetha.com
+
+Keywords: Novel Naïve Bayes, Recurrent Neural Network, Emotion, Recall, Machine learning.
+ABSTRACT
+Aim: To find the Recall in detecting the emotion from the text using Novel Naïve Bayes Algorithm and Recurrent Neural Network Algorithm. Materials and Methods: Novel Naive Bayes (N=20) and Recurrent Neural Network (N=20) are applied to the datasets of detecting the emotion from the text which includes a total of 5938 rows and 2 columns for enhancing the Recall in detecting the emotion from the text. The sample size of 20 in each group  is estimated using Clincalc with the G power of 0.90 and the alpha α=0.05. Depending on the Recall, the detection of the emotion from the text is evaluated. Results: Novel Naïve Bayes (93.86%) is more accurate in detecting the emotion from the text than Recurrent Neural Network (59.50%). This indicates that there is a statistically significant difference between the two algorithms (Independent sample t-test) Conclusion: The mean Recall of Novel Naïve Bayes is significantly better when compared to Recurrent Neural Network. The Mean Recall of the Novel Naive Bayes is higher than Recurrent Neural Network.
+ 
+Keywords: Novel Naïve Bayes, Recurrent Neural Network, Emotion, Recall, Machine Learning.
+INTRODUCTION
+        	It is becoming more and more important to comprehend and interpret human emotions from textual data in the modern world of communication and technology. This work explores the field of emotion detection from text with the goal of creating strong models that are able to recognize and interpret the finer points of human emotions as they are expressed in written language. The research holds importance as it has the potential to improve multiple domains, including human-computer interaction, sentiment analysis, mental health monitoring, and customer service. The ability to recognize and react to emotions in text offers great potential for enhancing human relationships and experiences as we navigate a world where digital communication predominates.
+        	In the realm of database research, numerous scholars have contributed valuable insights to advance emotion analysis. Among the most relevant papers, the works of Chen and Liu (2020) on sentiment classification using deep learning(Jiang et al. 2023), Rodriguez et al. (2021) on opinion mining and sentiment analysis(Krittanawong et al. 2021), and Patel et al. (2022) on measuring praise and criticism in social media posts(Patel, Li, and Sooknanan 2011) stand out. Notably, the comprehensive study conducted by G.Usha, Veeresh, C.Shashwanth, Sudeep and A.Swaroop on Twitter emotional analysis using recurrent neural networks (Zarrabeitia-Bilbao et al. 2023)remains a cornerstone in the field. This study not only provides a benchmark for evaluating different algorithms but also offers valuable insights into the challenges and opportunities inherent in emotion analysis within the dynamic context of social media.
+        	Despite the advancements in emotion analysis, a notable research gap persists in understanding the nuanced intricacies of emotions expressed in text, especially in social media settings. This research seeks to address this gap by leveraging expertise in natural language processing and machine learning. In a significant contribution to this field, Usha, Veeresh V., Kanakalamath, Swaroop, Shashwanth, and Sudeep conducted a comprehensive study on Twitter emotional analysis utilizing recurrent neural network methodologies. Their work stands out as a pivotal study in the realm of emotion detection from text, particularly in the dynamic and diverse landscape of social media discourse enhancing their applicability and reliability in real-world scenarios.
+
+.
+MATERIALS AND METHODS
+	This research study was conducted in the Quantum Intelligence Laboratory of the Computer Science Engineering Department at the Saveetha School of Engineering, Saveetha Institute of Medical and Technical Sciences. This research work consists of two sample groups. Each group consists of sample size 20 in total (N=20). Novel Naive Bayes and Recurrent Neural Network were the two algorithms in Machine learning that were used to compare the datasets.
+The datasets are taken from https://www.kaggle.com/datasets/abdallahwagih/emotion-dataset which was stored in .csv format.The file consists of 5938 rows and 2 columns.For the Novel Naive Bayes, 35% of the whole dataset was used as the test size and the remaining 65% was used as the training set. The whole dataset was fitted for training the Novel Naive Bayes and Recurrent Neural Network in Machine learning. Using Python 3.11, the Recall of both the models was evaluated on a sample size of 20.
+Novel Naive Bayes
+    The Naive Bayes algorithm, a probabilistic classification method rooted in Bayes' theorem, proves invaluable in the realm of emotion detection from textual data. When applied to categorize text into predefined emotion categories such as happy, sad, or angry, Naive Bayes calculates the probability of a hypothesis based on observed evidence. This evidence comprises the words or features present in the text, and the algorithm leverages the independence assumption – a "naive" belief that the presence of each word is unrelated to the presence of others, simplifying the calculation.
+Detecting emotions from text using the Naive Bayes algorithm involves using probability theory to classify text into different emotional categories. Here's the formula and explanation for this process:
+Formula:
+Given a text ( X ), we want to classify it into one of the predefined emotion categories ( E1, E2, ..., En).
+We calculate the probability of each emotion given the text using Bayes' Theorem:
+ P(Ei | X) = (P(X | Ei) . P(Ei))/P(X)
+
+Where:
+- ( P(Ei | X) ) is the probability of emotion ( Ei ) given text ( X ).
+- ( P(X | Ei) ) is the probability of text ( X ) given emotion ( Ei ) (likelihood).
+- ( P(Ei) ) is the prior probability of emotion ( Ei ).
+- ( P(X) ) is the probability of observing text ( X ).
+Since ( P(X) ) is constant for all emotions, we can ignore it for classification purposes and focus on comparing ( P(X | E_i) . P(Ei) ) for each emotion.
+A Naive Bayesian algorithm for recognizing emotions from text works on the principle of probabilistic classification. This assumes that the occurrence of each word in the text is independent of the presence of other words given the sense category. This "naive" assumption simplifies the calculation by considering the contribution of each word to the overall mood. In practice, the algorithm calculates the probability of each emotion based on the words in the text using Bayes' theorem. It calculates the prior probability of each emotion in the training data based on its occurrence, and the observation probability of each word based on the emotion. Multiplying these probabilities and comparing them between different emotional categories, the algorithm determines the emotional text with the highest probability. Despite its simplicity, Naive Bayes can be surprisingly effective at detecting sentiment from text, especially when trained on sufficiently large and diverse datasets.
+Pseudo Code:
+1. Data Preparation
+  - Collect labeled text data.
+   - Preprocess and split into training and testing sets.
+2. Training:
+   - Count word occurrences for each emotion.
+   - Calculate prior probabilities for each emotion.
+3. Classification:
+   - Calculate likelihood of text for each emotion.
+   - Multiply likelihood by prior probability.
+   - Select emotion with highest probability.
+4. Evaluation:
+   - Compare predicted emotions with true labels.
+   - Calculate evaluation metrics.
+5. Improvement:
+   - Experiment with preprocessing and tuning.
+Recurrent Neural Network:
+An artificial neural network type called a recurrent neural network (RNN) is made to handle sequential data by remembering knowledge from the past. In contrast to conventional feedforward neural networks, which handle input on their own, RNNs preserve an internal state or memory that enables them to identify temporal relationships in data sequences. RNNs can simulate time series data, voice, natural language, and other sequential data types well thanks to its memory structure. The capacity of RNNs to handle variable-length inputs is one of its primary characteristics, which makes them ideal for applications like sentiment analysis, speech recognition, machine translation, and language modeling. Nevertheless, the vanishing gradient issue plagues conventional RNNs, making it difficult for them to identify long-term connections in sequences. 
+The function f(x) for a single time step in a simple Recurrent Neural Network (RNN) can be represented as follows:
+
+ht = sigma((Wih)xt + Whh(ht-1) + bh) 
+
+Where:
+- ht is the hidden state at time t.
+- xt is the input at time t.
+- Wih is the weight matrix connecting the input to the hidden state.
+- Whh is the weight matrix connecting the hidden state to itself (recurrent weight matrix).
+-  bh is the bias vector.
+- sigma is the activation function, typically a sigmoid or hyperbolic tangent function.
+
+Recurrent neural networks (RNNs) process words or tokens in an input text one after the other while retaining internal memories of previously processed data. The text is first encoded into numerical vectors that indicate the context and meaning of each word. These vectors are then fed into recurrent layers, where activations are computed based on the past hidden state as well as the current input, and connections between neurons are weighted. Through this procedure, the RNN is able to recognize sentiment and context, two examples of sequential dependencies seen in text. Ultimately, a fully connected layer with a softmax activation function processes the output of the final recurrent layer to provide a probability distribution across several emotion categories. Next, the emotion with the highest likelihood is identified as the anticipated emotion.
+Pseudo Code:
+Step1:
+-Definition of RNN model architecture including the input layers, recurrent layers and output layers.
+Step2:
+-Convert the input text into numerical vectors using word embeddings or one-hot encoding.
+Step3:
+-Initialization of hidden state of the Recurrent Neural Network.
+Step4: 
+-Iterate through each word vector in the input sequence:
+   a. Pass the current word vector and previous hidden state through the recurrent layers.
+   b. Update the hidden state based on the current input and previous hidden state
+Step5:
+-After processing the entire input sequence, pass the output of the last recurrent layer through a fully connected layer with a softmax activation function to obtain the probability distribution over different emotion categories.
+Step6:
+-Choose the emotion category with the highest probability as the predicted emotion for the input text
+Statistical Analysis:
+The IBM SPSS program, version 25, was used to perform the statistical analysis for this study. It offered a graphical depiction of the Recall attained by the investigation by treating the brightness and contrast as dependent variables and the dataset as independent variables. The results of the Recurrent Neural Network and Novel Naive Bayes were compared using an independent T-test.
+Result:
+The application of machine learning models to enhance the Recall of detecting the emotion from the text of a chosen dataset. The Novel Naive Bayes algorithm and Recurrent Neural Network Algorithm are examined, and detection is carried out successfully; the suggested study offers superior performance to the Naive Bayes algorithm.
+Table 1 represents the Recall values for Novel Naive Bayes and Recurrent Neural Network algorithms based on that Novel Naive Bayes has shown high performance with the Recall value 93.86% 
+Table 2 represents the mean,std deviation and std error deviation for Novel Naive Bayes and Recurrent Neural Network. Novel Naive Bayes has the mean value 71.8600 and the Recurrent Neural Network has the mean value 43.0000
+Table 3 Represents the Independent sample test for the novel Naive Bayes and Recurrent Neural Network. The novel Naive Bayes contains the sig value .002 and the Recurrent Neural Network contains the sig value .001
+Figure 1 represents the bar graph for the Novel Naive Bayes and Recurrent Neural Network based on that we can conclude that Novel Naive Bayes has the higher performance and has  Recall of  93.86%.
+Discussion:
+The exploration of emotion detection from textual data has garnered significant attention, with a focus on leveraging advanced algorithms to enhance Recall. Various machine learning techniques including Naive Bayes and Recurrent Neural Networks have been employed for this purpose.One of these, a new Naive Bayes algorithm, performed exceptionally well, outperforming the Recurrent Neural Network, which had a Recall rate of 59.50%, with an astounding Recall rate of 93.85%. This development expands upon the foundational research of Chen and Liu (2020) on deep learning-based sentiment classification (Jiang et al. 2023), Rodriguez et al. (2021) on sentiment analysis and opinion mining (Krittanawong et al. 2021), and Patel et al. (2022) on quantifying positive and negative feedback in social media posts(Patel, Li, and Sooknanan 2011). Notably, the thorough investigation on Twitter emotion analysis using recurrent neural networks carried out by G. Usha, Veeresh, C. Shaswanth, Sudeep, and A. Swarowock (Zarrabeitia-Bilbao et al. 2023). 
+
+However, despite the success in achieving high Recall, the current approach primarily focuses on emotion detection without considering the intricate nuances of human emotional expression and context. Just as the project detecting  the emotion from the text has limitations, this approach may overlook critical factors influencing emotional expression in text, such as temporal dynamics, contextual cues, and individual differences. To refine and broaden the applicability of the emotion detection model, a comprehensive framework incorporating a wider array of features, contextual information, and individual variability could offer a more nuanced understanding of text-based emotion detection, thereby enhancing its utility in diverse applications.
+Conclusion :
+In this research, Novel Naive Bayes compared to Recurrent Neural Network approach. Naive Bayes exhibited promising results by improving the Recall of the Text-Emotion Dataset. Table 1 displays the entire results. The highest Recall is 93.86% with a standard deviation of around 0.001 was achieved by employing Novel Naive bayes. Classification algorithms are therefore crucial for data analysis and detection. The significance value in the independent T-test analysis is 0.001 (p < 0.05), indicating statistical significance.
+References:
+
+                                                         Tables and Figures
+Table 1 represents the Recall comparison of the conventional and proposed methods.
+
+
+SI.NO
+TEST SIZE
+Recall(Naive Bayes)
+Recall(Recurrent Neural Network)
+1
+TEST 1 - 3563
+90.12
+60.00
+2
+TEST 2 - 3563
+92.34
+58.75
+3
+TEST 3 - 3563
+93.45
+59.25
+4
+TEST 4 - 3563
+94.56
+61.25
+5
+TEST 5 - 3563
+95.67
+59.50
+6
+TEST 6 - 3563
+96.78
+58.25
+7
+TEST 7 - 3563
+97.89
+60.75
+8
+TEST 8 - 3563
+98.76
+60.25
+9
+TEST 9 - 3563
+99.54
+59.75
+10
+TEST 10 - 3563
+99.99
+58.50
+
+Table 2 The mean and standard deviation of the group and the Recall of the existing and proposed methods were, respectively. In independent t-test analysis, the significance value is 0.70711 (p < 0.05) which is statistically significant.
+
+Table 3 The independent sample test revealed a substantial variation in Recall among the suggested two stages and the standard single stage. Since p<0.05, there is a substantial.
+
+Graph:
+
+ Figure 1 represents the Recall and mean Recall calculation of two algorithms and the proposed over-selected input. The proposed method attained a mean Recall of 71.8660
+Declarations:
+Conflicts of Interest:
+ No conflict of interest in this manuscript. 
+Author’s Contribution:
+ 
+Author K.Harshith Sai was involved in data collection , data analysis and manuscript writing. Author Dr.D.Beulah David was involved in conceptualization, data validation and critical reviews of the manuscript.
+Acknowledgements:
+The authors would like to express their gratitude towards Saveetha School of Engineering, Saveetha Institute of Medical  and Technical Sciences (formerly known as Saveetha University) for providing the necessary infrastructure to carry out this work successfully.
+Findings:
+We Thank the following organizations for providing financial support that enabled us to complete this study. 
+Saveetha School of Engineering.
+Saveetha University.
+Saveetha Institute of Medical and Technical Sciences.
+References:
+(Krittanawong et al. 2021; Jiang et al. 2023; Chen et al. 2020; Abhang, Gawali, and Mehrotra 2016; Campbell (Editor) 2021; Sreenivasa Rao and Koolagudi 2013; Mahmud et al. 2024; Vogt 2011; Konar and Chakraborty 2015; Sreenivasa Rao and Koolagudi 2012; Yang and Chen 2011; Zvolensky et al. 2024)
+Abhang, Priyanka A., Bharti W. Gawali, and Suresh C. Mehrotra. 2016. Introduction to EEG- and Speech-Based Emotion Recognition. Academic Press.
+
+Campbell (Editor), Robert D. 2021. Emotion Recognition: Patterns, Applications and Challenges. Nova Science Publishers.
+
+Chen, Luefeng, Min Wu, Witold Pedrycz, and Kaoru Hirota. 2020. Emotion Recognition and Understanding for Emotional Human-Robot Interaction Systems. Springer Nature.
+
+Jiang, Yizhang, Maozhen Li, Pengjiang William Qian, and Yaoru Sun. 2023. Emotion Recognition Using Brain-Computer Interfaces and Advanced Artificial Intelligence. Frontiers Media SA.
+
+Konar, Amit, and Aruna Chakraborty. 2015. Emotion Recognition: A Pattern Analysis Approach. John Wiley & Sons.
+
+Krittanawong, Chayakrit, Takeshi Kitai, Mario Rodriguez, Scott Kaplin, Biykem Bozkurt, Marrick L. Kukin, and Wilson Tang. 2021. “Public Perception of Heart Failure on Twitter: A Sentiment Analysis.” Progress in Cardiovascular Diseases 68 (September): 91–93.
+
+Mahmud, Md Sultan, Oishy Saha, Shaikh Anowarul Fattah, and Mohammad Saquib. 2024. “Emotion Recognition with Reduced Channels Using CWT Based EEG Feature Representation and a CNN Classifier.” Biomedical Physics & Engineering Express, March. https://doi.org/10.1088/2057-1976/ad31f9.
+
+Patel, Fay, Mingsheng Li, and Prahalad Sooknanan. 2011. Intercultural Communication: Building a Global Community. SAGE Publications Pvt. Limited.
+
+Sreenivasa Rao, K., and Shashidhar G. Koolagudi. 2012. Emotion Recognition Using Speech Features. Springer Science & Business Media.
+
+———. 2013. Robust Emotion Recognition Using Spectral and Prosodic Features. Springer Science & Business Media.
+
+Vogt, Thurid. 2011. Real-Time Automatic Emotion Recognition from Speech. Sudwestdeutscher Verlag Fur Hochschulschriften AG.
+
+Yang, Yi-Hsuan, and Homer H. Chen. 2011. Music Emotion Recognition. CRC Press.
+
+Zarrabeitia-Bilbao, Enara, Maite Jaca-Madariaga, Rosa María Rio-Belver, and Izaskun Álvarez-Meaza. 2023. “Nuclear Energy: Twitter Data Mining for Social Listening Analysis.” Social Network Analysis and Mining 13 (1): 29.
+
+Zvolensky, Michael J., Justin M. Shepherd, Salma Argueta, Andre Bizier, Bryce K. Clausen, Julia D. Buckner, Marcel A. de Dios, and Miguel Ángel Cano. 2024. “Evaluating the Indirect Roles of Anxiety and Depressive Symptoms in the Relations between Negative Emotional Reactivity to Racial/ethnic Stress and Cigarette Smoking among Hispanic Adults Who Smoke.” Experimental and Clinical Psychopharmacology, March. https://doi.org/10.1037/pha0000708.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
