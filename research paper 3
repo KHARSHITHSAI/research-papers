@@ -1,0 +1,244 @@
+Enhancing the Accuracy of Detecting the Emotion from the Text using  Novel Naïve Bayes Algorithm in Comparison with Support Vector Machine Algorithm
+                                       	K. Harshith Sai1, D. Beulah David2
+ 
+K. Harshith Sai1
+Research Scholar,
+Department of Computer Science and Engineering,
+Saveetha School of Engineering,
+Saveetha Institute of Medical and Technical Sciences,
+Saveetha University, Chennai, TamilNadu, India, Pincode: 602105.
+harshithsaik1303.sse@saveetha.com
+ 
+D. Beulah David2
+Project Guide, Corresponding Author,
+Department of Quantum Intelligence,
+Saveetha School of Engineering,
+Saveetha Institute of Medical and Technical Sciences,
+Saveetha University, Chennai, TamilNadu, India, Pincode: 602105.
+beulahdavid.sse@saveetha.com
+
+Keywords: Novel Naïve Bayes, Support Vector Machine, Emotion, Accuracy, Machine Learning.
+
+
+ABSTRACT
+Aim: To find the accuracy in detecting the emotion from the text using Novel Naïve Bayes Algorithm and Support Vector Machine Algorithm. Materials and Methods: Novel Naive Bayes (N=20) and Support Vector Machine (N=20) are applied to the datasets of detecting the emotion from the text which includes a total of 5938 rows and 2 columns for enhancing the accuracy in detecting the emotion from the text. The sample size of 20 in each group  is estimated using Clincalc with the G power of 0.95 and the alpha α=0.05. Depending on the accuracy, the detection of the emotion from the text is evaluated. Results: Novel Naïve Bayes (93.85%) is more accurate in detecting the emotion from the text than Support Vector Machine (89.64%). This indicates that there is a statistically significant difference between the two algorithms (Independent sample t-test) Conclusion: The mean accuracy of Novel Naïve Bayes is significantly better when compared to Support Vector Machine. The Mean accuracy of the Novel Naive Bayes is higher than Support Vector Machine.
+ 
+Keywords: Novel Naïve Bayes, Support Vector Machine, Emotion, Accuracy, Machine Learning.
+INTRODUCTION
+        	It is becoming more and more important to comprehend and interpret human emotions from textual data in the modern world of communication and technology. This work explores the field of emotion detection from text with the goal of creating strong models that are able to recognize and interpret the finer points of human emotions as they are expressed in written language(Pedrycz and Chen 2016). The research holds importance as it has the potential to improve multiple domains, including human-computer interaction, (Liu 2022)sentiment analysis, mental health monitoring, and customer service(Pang and Lee 2008). The ability to recognize and react to emotions in text offers great potential for enhancing human relationships and experiences as we navigate a world where digital communication predominates.
+        	In the realm of database research, numerous scholars have contributed valuable insights to advance emotion analysis. Among the most relevant papers, the works of Pang and Lee (2008) on sentiment classification using machine learning(Pang and Lee 2008), Liu (2012) on opinion mining and sentiment analysis(Liu 2022), Turney and Littman (2003) on measuring praise and criticism in reviews(Meiselman 2021) Notably, the comprehensive study conducted by Anmol Nayak and Dr. S. Natarajan in 2016(Pedrycz and Chen 2016), comparing the performance of Naive Bayes, Support Vector Machine, and Random Forest classifiers in emotion analysis of Twitter feeds, remains a cornerstone in the field. This study not only provides a benchmark for evaluating different algorithms but also offers valuable insights into the challenges and opportunities inherent in emotion analysis within the dynamic context of social media.
+        	Despite the advancements in emotion analysis, a notable research gap persists in understanding the nuanced intricacies of emotions expressed in text, especially in social media settings. This research seeks to address this gap by leveraging expertise in natural language processing and machine learning. The overarching aim is to develop a robust framework for detecting emotions from textual data, with a specific focus on a comparative study of Naive Bayes, Support Vector Machine, and Random Forest classifiers, building upon the seminal work by Nayak and Natarajan. By unraveling the strengths and limitations of these classifiers in the context of Twitter feeds, this research aims to contribute to the refinement of emotion analysis techniques, enhancing their applicability and reliability in real-world scenarios.
+MATERIALS AND METHODS
+	This research study was conducted in the Quantum Intelligence Laboratory of the Computer Science Engineering Department at the Saveetha School of Engineering, Saveetha Institute of Medical and Technical Sciences. This research work consists of two sample groups. Each group consists of sample size 20 in total (N=20). Novel Naive Bayes and Support Vector Machine were the two algorithms that were used to compare the datasets.
+The datasets are taken from https://www.kaggle.com/datasets/abdallahwagih/emotion-dataset which was stored in .csv format.The file consists of 5938 rows and 2 columns.For the Novel Naive Bayes, 30% of the whole dataset was used as the test size and the remaining 70% was used as the training set. The whole dataset was fitted for training the Novel Naive Bayes and Support Vector Machine in Machine learning. Using Python 3.11, the accuracy of both the models was evaluated on a sample size of 20.
+Novel Naive Bayes
+    The Naive Bayes algorithm, a probabilistic classification method rooted in Bayes' theorem, proves invaluable in the realm of emotion detection from textual data. When applied to categorize text into predefined emotion categories such as happy, sad, or angry, Naive Bayes calculates the probability of a hypothesis based on observed evidence. This evidence comprises the words or features present in the text, and the algorithm leverages the independence assumption – a "naive" belief that the presence of each word is unrelated to the presence of others, simplifying the calculation.
+Detecting emotions from text using the Naive Bayes algorithm involves using probability theory to classify text into different emotional categories. Here's the formula and explanation for this process:
+Formula:
+Given a text ( X ), we want to classify it into one of the predefined emotion categories ( E1, E2, ..., En).
+We calculate the probability of each emotion given the text using Bayes' Theorem:
+ P(Ei | X) = (P(X | Ei) . P(Ei))/P(X)                                                                          (1)
+
+Where:
+- ( P(Ei | X) ) is the probability of emotion ( Ei ) given text ( X ).
+- ( P(X | Ei) ) is the probability of text ( X ) given emotion ( Ei ) (likelihood).
+- ( P(Ei) ) is the prior probability of emotion ( Ei ).
+- ( P(X) ) is the probability of observing text ( X ).
+Since ( P(X) ) is constant for all emotions, we can ignore it for classification purposes and focus on comparing ( P(X | E_i) . P(Ei) ) for each emotion.
+A Naive Bayesian algorithm for recognizing emotions from text works on the principle of probabilistic classification. This assumes that the occurrence of each word in the text is independent of the presence of other words given the sense category. This "naive" assumption simplifies the calculation by considering the contribution of each word to the overall mood. In practice, the algorithm calculates the probability of each emotion based on the words in the text using Bayes' theorem. It calculates the prior probability of each emotion in the training data based on its occurrence, and the observation probability of each word based on the emotion. Multiplying these probabilities and comparing them between different emotional categories, the algorithm determines the emotional text with the highest probability. Despite its simplicity, Naive Bayes can be surprisingly effective at detecting sentiment from text, especially when trained on sufficiently large and diverse datasets.
+Pseudo Code:
+1. Data Preparation
+- Collect labeled text data.
+- Preprocess and split into training and testing sets.
+2. Training:
+- Count word occurrences for each emotion.
+- Calculate prior probabilities for each emotion.
+3. Classification:
+- Calculate likelihood of text for each emotion.
+   - Multiply likelihood by prior probability.
+   - Select emotion with highest probability.
+4. Evaluation:
+   - Compare predicted emotions with true labels.
+   - Calculate evaluation metrics.
+5. Improvement:
+   - Experiment with preprocessing and tuning.
+
+Support Vector Machine:
+A potent supervised machine learning approach for regression and classification problems is called Support Vector Machine (SVM). The fundamental idea behind it is to locate the appropriate hyperplane in a high-dimensional space to divide data points from various classes. Maximizing the interclass margin—the distance between the hyperplane and the nearest data points, or support vectors, for each class—is the aim of support vector machines (SVM). SVM increases generalization to unknown data in addition to achieving strong classification performance by optimizing this margin. SVM may analyze data that is linearly separable or non-linearly separable by employing a variety of kernel functions, including sigmoid, polynomial, linear, and radial basis function (RBF). Because of its adaptability, SVM can effectively handle a variety of data sets. Because of their strength.
+Detecting emotions from text using a Support Vector Machine (SVM) algorithm involves several steps, including text preprocessing, feature extraction, training the SVM model, and then using the trained model to classify emotions in unseen text. Here's a basic outline of the process along with the formula for the SVM algorithm:
+
+The formula for the SVM algorithm involves finding the hyperplane that maximizes the margin between classes while minimizing the classification error. Given a training dataset with feature vectors xi and corresponding labels yi, where xi is a feature vector in a high-dimensional space and yi is its class label, the SVM algorithm seeks to solve the following optimization problem:
+subject to the constraints:
+                          yi(w.xi+b)>=1-(i)                                                                  (2)
+                                                                i=1,.....,N and (i)>=0
+Where:
+- w is the weight vector that defines the separating hyperplane.
+- b is the bias term.
+- C is the regularization parameter that controls the trade-off between maximizing the margin and minimizing the classification error.
+- xi are slack variables that allow for some misclassification.
+-  N is the number of training examples.
+
+Once the optimization problem is solved, the classification of new instances can be performed using the decision function.
+                      f(x)=sign(w.x+b)                                                                                    (3)
+where x is the feature vector of the new instance.
+This decision function assigns a class label based on which side of the hyperplane the feature vector falls on. For example, if f(x)>0, the instance belongs to one class, and if  f(x)<0, it belongs to the other class.
+Suitable for both regression and classification applications, Support Vector Machine (SVM) is a potent supervised machine learning technique. In a high-dimensional space, its fundamental idea is to choose the appropriate hyperplane for separating data points from various classes. Making the greatest interclass margin possible is the aim of support vector machines (SVM). This is the distance measured between the nearest support vectors, or data points, of each class and the hyperplane. SVM enhances both classification performance and generalization to new data by optimizing this margin. SVM uses a variety of kernel functions, including linear, polynomial, radial basis function (RBF), and sigmoid, to handle data that is both linearly and non-linearly separable. SVM can effectively handle a variety of data sets thanks to its adaptability. Owing to their resilience.
+Pseudocode:
+Step 1: 
+   - Step 1.1: Split the dataset into training and testing sets.
+   - Step 1.2: Convert text data into numerical feature vectors.
+   - Step 1.2.1: Utilize techniques like TF-IDF to convert text into numerical representations.
+   - Step 1.2.2: Ensure each text sample corresponds to a feature vector.
+Step 2: 
+   - Step 2.1: Initialize SVM classifier with desired parameters.
+   - Step 2.1.1: Choose an appropriate kernel function (e.g., linear, RBF).
+   - Step 2.1.2: Set hyperparameters like regularization parameter (C) and kernel coefficients.
+Step 3: 
+   - Step 3.1: Train the SVM classifier using the training data.
+   - Step 3.1.1: Feed the feature vectors of the training set into the SVM model.
+   - Step 3.1.2: SVM adjusts the hyperplane to maximize the margin between different classes.
+Step 4: 
+   - Step 4.1: Predict emotions on the test set.
+   - Step 4.1.1: Utilize the trained SVM model to predict emotions for the test samples.
+  - Step 4.1.2: Transform the text samples of the test set into feature vectors using the same method as in the training phase.
+Step 5: 
+   - Step 5.1: Evaluate the performance of the classifier using appropriate metrics.
+   - Step 5.1.1: Compute metrics like precision, recall, F1-score, and accuracy.
+   - Step 5.1.2: Compare predicted emotions with the actual emotions in the test set.
+   - Step 5.1.3: Adjust parameters and repeat steps 3-5 if necessary for better performance.
+Statistical Analysis:
+The IBM SPSS program, version 25, was used to perform the statistical analysis for this study. It offered a graphical depiction of the accuracy attained by the investigation by treating the brightness and contrast as dependent variables and the dataset as independent variables. The results of the Support Vector Machine and Novel Naive Bayes were compared using an independent T-test.
+Result:
+The application of machine learning models to enhance the accuracy of detecting the emotion from the text of a chosen dataset. The Novel Naive Bayes algorithm and Support Vector Machine Algorithm are examined, and detection is carried out successfully; the suggested study offers superior performance to the Naive Bayes algorithm.
+Table 1 represents the accuracy values for Novel Naive Bayes and Support Vector Machine algorithms based on that Novel Naive Bayes has shown high performance with the accuracy value 93.85% 
+Table 2 represents the mean,std deviation and std error deviation for Novel Naive Bayes and Support Vector Machine. Novel Naive Bayes has the mean value 70.2660 and the Support Vector Machine has the mean value 59.8760.
+Table 3 Represents the Independent sample test for the novel Naive Bayes and Support Vector Machine. The novel Naive Bayes contains the sig value .002 and the Support Vector Machine contains the sig value .003.
+Figure 1 represents the bar graph for the Novel Naive Bayes and Support Vector Machine based on that we can conclude that Novel Naive Bayes has the higher performance and has  accuracy of  93.85%.
+
+Discussion:
+The exploration of emotion detection from textual data has garnered significant attention, with a focus on leveraging advanced algorithms to enhance accuracy. Various machine learning techniques including Naive Bayes and Support Vector Machines have been employed for this purpose. Among these, a novel Naive Bayes algorithm exhibited promising results, achieving an impressive accuracy rate of 93.85%, surpassing that of Support Vector Machine, which attained 89.64% accuracy. This advancement builds upon seminal works in sentiment analysis and opinion mining such as Pang and Lee (2008)(Pang and Lee 2008), Liu (2012) on opinion mining and sentiment analysis(Liu 2022), and Turney and Littman (2003)(Meiselman 2021), as well as recent comparative studies in sentiment analysis, notably the research by Nayak and Dr.S.Natarajan (2016)(Pedrycz and Chen 2016).
+However, despite the success in achieving high accuracy, the current approach primarily focuses on emotion detection without considering the intricate nuances of human emotional expression and context. Just as the project detecting  the emotion from the text has limitations, this approach may overlook critical factors influencing emotional expression in text, such as temporal dynamics, contextual cues, and individual differences. To refine and broaden the applicability of the emotion detection model, a comprehensive framework incorporating a wider array of features, contextual information, and individual variability could offer a more nuanced understanding of text-based emotion detection, thereby enhancing its utility in diverse applications.
+Conclusion :
+In this research, Novel Naive Bayes compared the Support Vector Machine approach. Naive Bayes exhibited promising results by improving the accuracy of the Text-Emotion Dataset. Table 1 displays the entire results. The highest accuracy is 93.85% with a standard deviation of around 0.002 was achieved by employing Novel Naive bayes. Classification algorithms are therefore crucial for data analysis and detection. The significance value in the independent T-test analysis is 0.002 (p < 0.05), indicating statistical significance.
+
+
+
+Tables and Figures
+Table 1 represents the accuracy comparison of the conventional and proposed methods.
+
+
+SI.NO
+TEST SIZE
+ACCURACY(Naive Bayes)
+ACCURACY(Support Vector Machine) 
+1
+TEST 1 - 4167
+91.6
+91.2
+2
+TEST 2 - 4167
+94.1
+87.50
+3
+TEST 3 - 4167
+93.4
+92.75
+4
+TEST 4 - 4167
+92.7
+85.30
+5
+TEST 5 - 4167
+95.2
+96.20
+6
+TEST 6 - 4167
+92.9
+89.90
+7
+TEST 7 - 4167
+94.3
+84.40
+8
+TEST 8 - 4167
+93.8
+95.70
+9
+TEST 9 - 4167
+93.9
+93.80
+10
+TEST 10 - 4167
+93.2
+81.10
+
+Table 2 The mean and standard deviation of the group and the accuracy of the existing and proposed methods were, respectively. In independent t-test analysis, the significance value is 0.170 (p < 0.05) which is statistically significant.
+
+Table 3 The independent sample test revealed a substantial variation in accuracy among the suggested two stages and the standard single stage. Since p<0.05, there is a substantial.
+
+Graph:
+
+ Figure 1 represents the accuracy and mean accuracy calculation of two algorithms and the proposed over-selected input. The proposed method attained a mean accuracy of 70.2660
+Declarations:
+Conflicts of Interest:
+ No conflict of interest in this manuscript. 
+Author’s Contribution:
+ 
+Author K.Harshith Sai was involved in data collection , data analysis and manuscript writing. Author Dr.D.Beulah David was involved in conceptualization, data validation and critical reviews of the manuscript.
+Acknowledgements:
+The authors would like to express their gratitude towards Saveetha School of Engineering, Saveetha Institute of Medical  and Technical Sciences (formerly known as Saveetha University) for providing the necessary infrastructure to carry out this work successfully.
+Findings:
+We Thank the following organizations for providing financial support that enabled us to complete this study. 
+Saveetha School of Engineering.
+Saveetha University.
+Saveetha Institute of Medical and Technical Sciences.
+References:
+(Machová et al. 2023; Rodrigues et al. 2022; Liu 2022; Dutta and Barman 2020; Konar and Chakraborty 2015; Chen et al. 2020; Kyamakya et al. 2021; Troiano 2023; Wedyan and Saeidi-Rizi 2024; Ai et al. 2024; Ahmad 2011)
+Ahmad, Khurshid. 2011. Affective Computing and Sentiment Analysis: Emotion, Metaphor and Terminology. Springer Science & Business Media.
+
+Ai, Wei, Yuntao Shou, Tao Meng, and Keqin Li. 2024. “DER-GCN: Dialog and Event Relation-Aware Graph Convolutional Neural Network for Multimodal Dialog Emotion Recognition.” IEEE Transactions on Neural Networks and Learning Systems PP (March). https://doi.org/10.1109/TNNLS.2024.3367940.
+
+Chen, Luefeng, Min Wu, Witold Pedrycz, and Kaoru Hirota. 2020. Emotion Recognition and Understanding for Emotional Human-Robot Interaction Systems. Springer Nature.
+
+Dutta, Paramartha, and Asit Barman. 2020. Human Emotion Recognition from Face Images. Springer Nature.
+
+Konar, Amit, and Aruna Chakraborty. 2015. Emotion Recognition: A Pattern Analysis Approach. John Wiley & Sons.
+
+Kyamakya, Kyandoghere, Fadi Al-Machot, Ahmad Haj Mosa, Hamid Bouchachia, Jean Chamberlain Chedjou, and Antoine Bagula. 2021. Emotion and Stress Recognition Related Sensors and Machine Learning Technologies. MDPI.
+
+Liu, Bing. 2022. Sentiment Analysis and Opinion Mining. Springer Nature.
+
+Machová, Kristína, Martina Szabóova, Ján Paralič, and Ján Mičko. 2023. “Detection of Emotion by Text Analysis Using Machine Learning.” Frontiers in Psychology 14 (September): 1190326.
+
+Meiselman, Herbert L. 2021. Emotion Measurement. Woodhead Publishing.
+
+Pang, Bo, and Lillian Lee. 2008. Opinion Mining and Sentiment Analysis. Now Publishers Inc.
+
+Pedrycz, Witold, and Shyi-Ming Chen. 2016. Sentiment Analysis and Ontology Engineering: An Environment of Computational Intelligence. Springer.
+
+Rodrigues, Anisha P., Roshan Fernandes, Aakash A, Abhishek B, Adarsh Shetty, Atul K, Kuruva Lakshmanna, and R. Mahammad Shafi. 2022. “Real-Time Twitter Spam Detection and Sentiment Analysis Using Machine Learning and Deep Learning Techniques.” Computational Intelligence and Neuroscience 2022 (April): 5211949.
+
+Troiano, Enrica. 2023. Where Are Emotions in Text? A Human-Based and Computational Investigation of Emotion Recognition and Generation.
+
+Wedyan, Musab, and Fatemeh Saeidi-Rizi. 2024. “Assessing the Impact of Urban Environments on Mental Health and Perception Using Deep Learning: A Review and Text Mining Analysis.” Journal of Urban Health: Bulletin of the New York Academy of Medicine, March. https://doi.org/10.1007/s11524-024-00830-6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
